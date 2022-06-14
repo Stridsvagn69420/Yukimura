@@ -1,0 +1,22 @@
+[package]
+name = "yukimura"
+version = "0.1.0"
+edition = "2021"
+authors = ["Stridsvagn69420 (https://github.com/Stridsvagn69420)"]
+description = "A program and library written in Rust for mathematical things I learned in Maths and Physics"
+readme = "README.md"
+repository = "https://github.com/Stridsvagn69420/Yukimura"
+license = "eupl-1.2"
+
+# https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "yukimura"
+path = "src/main.rs"
+
+[lib]
+name = "yukimura"
+path = "src/lib.rs"
+
+[dependencies]
+clap = { version = "3.2.3", features = ["derive"] }
