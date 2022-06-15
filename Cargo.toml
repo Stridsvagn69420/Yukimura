@@ -19,4 +19,4 @@ name = "yukimura"
 path = "src/lib.rs"
 
 [dependencies]
-clap = { version = "3.2.3", features = ["derive"] }
+clap = { version = "3.2.4", features = ["derive"] }
