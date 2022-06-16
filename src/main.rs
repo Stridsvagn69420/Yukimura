@@ -32,60 +32,48 @@ fn abc(use64: bool) {
             exit(1)
         },
         Some(cstr) => {
-            if use64 {
-                // Parse input
-                let bstr = env::args().nth(3).unwrap();
-                let astr = env::args().nth(2).unwrap();
-                if cstr.parse::<f64>().is_err() 
-                | bstr.parse::<f64>().is_err()
-                | astr.parse::<f64>().is_err() {
-                    eprintln!("Arguments for a, b and c must be numbers!");
-                    exit(1);
-                }
-                // Run function
-                match float64::abc::abc(
-                    astr.parse::<f64>().unwrap(),
-                    bstr.parse::<f64>().unwrap(),
-                    cstr.parse::<f64>().unwrap()
-                ) {
+            let bstr = env::args().nth(3).unwrap();
+            let astr = env::args().nth(2).unwrap();
+            if use64 {                
+                match float64::abc::abc_str(astr.as_str(), bstr.as_str(), cstr.as_str()) {
                     Err(e) => eprintln!("{}", e),
                     Ok(x) => {
-                        // Print solution
-                        if x.x2.is_nan() {
-                            println!("Only one solution");
-                            println!("x: {}", x.x1);
-                        } else {
-                            print!("x1: {} ", x.x1);
-                            println!("x2: {}", x.x2);
-                        }
+                        match x {
+                            // Print solution
+                            Ok(x) => {
+                                if x.x2.is_nan() {
+                                    println!("Only one solution");
+                                    println!("x: {}", x.x1);
+                                } else {
+                                    print!("x1: {} ", x.x1);
+                                    println!("x2: {}", x.x2);
+                                }
+                            },
+                            Err(_) => {
+                                println!("No solution available")
+                            }
+                        }                        
                     }
                 }
             } else {
-                // Parse input
-                let bstr = env::args().nth(3).unwrap();
-                let astr = env::args().nth(2).unwrap();
-                if cstr.parse::<f32>().is_err() 
-                | bstr.parse::<f32>().is_err()
-                | astr.parse::<f32>().is_err() {
-                    eprintln!("Arguments for a, b and c must be numbers!");
-                    exit(1);
-                }
-                // Run function
-                match float32::abc::abc(
-                    astr.parse::<f32>().unwrap(),
-                    bstr.parse::<f32>().unwrap(),
-                    cstr.parse::<f32>().unwrap()
-                ) {
+                match float32::abc::abc_str(astr.as_str(), bstr.as_str(), cstr.as_str()) {
                     Err(e) => eprintln!("{}", e),
                     Ok(x) => {
-                        // Print solution
-                        if x.x2.is_nan() {
-                            println!("Only one solution");
-                            println!("x: {}", x.x1);
-                        } else {
-                            println!("x1: {} ", x.x1);
-                            println!("x2: {}", x.x2);
-                        }
+                        match x {
+                            // Print solution
+                            Ok(x) => {
+                                if x.x2.is_nan() {
+                                    println!("Only one solution");
+                                    println!("x: {}", x.x1);
+                                } else {
+                                    print!("x1: {} ", x.x1);
+                                    println!("x2: {}", x.x2);
+                                }
+                            },
+                            Err(_) => {
+                                println!("No solution available")
+                            }
+                        }                        
                     }
                 }
             }
