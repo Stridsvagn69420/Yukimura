@@ -51,7 +51,7 @@ fn abc(use64: bool) {
                     Err(e) => eprintln!("{}", e),
                     Ok(x) => {
                         // Print solution
-                        if x.x2 == f64::NAN {
+                        if x.x2.is_nan() {
                             println!("Only one solution");
                             println!("x: {}", x.x1);
                         } else {
@@ -79,7 +79,7 @@ fn abc(use64: bool) {
                     Err(e) => eprintln!("{}", e),
                     Ok(x) => {
                         // Print solution
-                        if x.x2 == f32::NAN {
+                        if x.x2.is_nan() {
                             println!("Only one solution");
                             println!("x: {}", x.x1);
                         } else {
