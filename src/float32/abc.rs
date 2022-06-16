@@ -11,11 +11,11 @@ pub fn abc(a: f32, b: f32, c: f32) -> Result<Solution, &'static str> {
     }
     let x1 = (-b + squarerooted.sqrt()) / (2.0 * a);
     let x2 = (-b - squarerooted.sqrt()) / (2.0 * a);
-    return Ok(Solution { x1, x2 });
+    Ok(Solution { x1, x2 })
 }
 
 pub fn pq(p: f32, q: f32) -> Result<Solution, &'static str> {
-    return abc(1.0, p, q)
+    abc(1.0, p, q)
 }
 
 // Errors
