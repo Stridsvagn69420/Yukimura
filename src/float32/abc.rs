@@ -1,10 +1,16 @@
 pub fn abc(a: f32, b: f32, c: f32) -> Result<Solution, &'static str> {
-    let tobesquared = b * b - 4.0 * a * c;
-    if tobesquared < 0.0 {
+    let squarerooted = b * b - 4.0 * a * c;
+    if squarerooted < 0.0 {
         return Err(NO_SOLUTION);
     }
-    let x1 = (-b + tobesquared.sqrt()) / (2.0 * a);
-    let x2 = (-b - tobesquared.sqrt()) / (2.0 * a);
+    if squarerooted == 0.0 {
+        return Ok(Solution {
+            x1: -b / (2.0 * a),
+            x2: f32::NAN
+        });
+    }
+    let x1 = (-b + squarerooted.sqrt()) / (2.0 * a);
+    let x2 = (-b - squarerooted.sqrt()) / (2.0 * a);
     return Ok(Solution { x1, x2 });
 }
 
