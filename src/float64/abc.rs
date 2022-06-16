@@ -19,7 +19,7 @@ pub fn pq(p: f64, q: f64) -> Result<Solution, &'static str> {
 }
 
 // Errors
-pub const NO_SOLUTION: &str = "4*a*c is negative and thus can't be squarerooted";
+pub const NO_SOLUTION: &str = "b² - 4ac is negative and thus can't be squarerooted";
 
 // Solution
 #[derive(Debug)]

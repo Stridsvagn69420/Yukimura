@@ -25,5 +25,10 @@ path = "src/lib.rs"
 name = "yukimura"
 path = "src/main.rs"
 
+[profile.release]
+lto = true
+strip = true
+debug = true
+
 [dependencies]
 clap = { version = "3.2.5", features = ["derive"] }
