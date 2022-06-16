@@ -7,16 +7,23 @@ description = "A program and library written in Rust for mathematical things I l
 readme = "README.md"
 repository = "https://github.com/Stridsvagn69420/Yukimura"
 license = "eupl-1.2"
+exclude = ["/target", "/.vscode/", "/.github/"]
 
-# https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[[bin]]
-name = "yukimura"
-path = "src/main.rs"
+[features]
+default = ["float32", "float64", "abc"]
+# Precision types
+float64 = []
+float32 = []
+# Formula types
+abc = []
 
 [lib]
 name = "yukimura"
 path = "src/lib.rs"
+
+[[bin]]
+name = "yukimura"
+path = "src/main.rs"
 
 [dependencies]
 clap = { version = "3.2.4", features = ["derive"] }
