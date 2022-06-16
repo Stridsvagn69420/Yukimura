@@ -45,7 +45,7 @@ fn abc(use64: bool) {
                                     println!("Only one solution");
                                     println!("x: {}", x.x1);
                                 } else {
-                                    print!("x1: {} ", x.x1);
+                                    println!("x1: {}", x.x1);
                                     println!("x2: {}", x.x2);
                                 }
                             },
@@ -66,7 +66,7 @@ fn abc(use64: bool) {
                                     println!("Only one solution");
                                     println!("x: {}", x.x1);
                                 } else {
-                                    print!("x1: {} ", x.x1);
+                                    println!("x1: {}", x.x1);
                                     println!("x2: {}", x.x2);
                                 }
                             },
