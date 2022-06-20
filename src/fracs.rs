@@ -1,10 +1,11 @@
-//! # Warning: RBORTED
+//! # Warning: ARBORTED
 //!
 //! I'm only keeping this in here so that I don't lose my progress of it.
 //! This was supposed to integrate fractions, because you can solve literally anything with them.
 //! However, it turned out to be way too complicated and I decided to just abort it, at least for now.
 
 use std::fmt::{Display, Debug, Formatter, Result};
+use crate::base;
 
 #[derive(Clone)]
 pub struct Fraction {
