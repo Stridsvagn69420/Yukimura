@@ -11,7 +11,7 @@ license = "eupl-1.2"
 exclude = ["/target", "/.vscode/", "/.github/"]
 
 [dependencies]
-
+kagero = { version = "0.1.0", features = ["printer"] }
 
 # --- Library ---
 [lib]
@@ -19,12 +19,14 @@ name = "yukimura"
 path = "src/lib.rs"
 
 [features]
-default = ["float32", "float64", "abc"]
-# Precision types
-float64 = []
-float32 = []
-# Formula types
-abc = []
+default = ["math", "physics", "quadratic"]
+# Science Types
+math = []
+physics = []
+# Algorithms
+quadratic = ["math"]
+# DEAD
+fracs = []
 
 # --- Binary ---
 [[bin]]

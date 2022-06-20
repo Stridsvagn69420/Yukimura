@@ -1,5 +1,16 @@
-#[cfg(feature = "float64")]
-pub mod float64;
+//! # Yukimura
+//! A program and library written in Rust for mathematical things I learned in Maths and Physics
+//! 
+//! It's currently still WIP.
 
-#[cfg(feature = "float32")]
-pub mod float32;
+
+pub mod base;
+
+#[cfg(feature = "fracs")]
+pub mod fracs;
+
+#[cfg(feature = "math")]
+pub mod math;
+
+#[cfg(feature = "physics")]
+pub mod physics;

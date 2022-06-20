@@ -1,19 +1,4 @@
-pub fn abc_str(astr: &str, bstr: &str, cstr: &str) -> Result<Result<Solution, &'static str>, &'static str> {
-    // Parse input
-    let a = match astr.parse::<f32>() {
-        Err(_) => return Err(WRONG_INPUT),
-        Ok(x) => x
-    };
-    let b = match bstr.parse::<f32>() {
-        Err(_) => return Err(WRONG_INPUT),
-        Ok(x) => x
-    };
-    let c = match cstr.parse::<f32>() {
-        Err(_) => return Err(WRONG_INPUT),
-        Ok(x) => x
-    };
-    Ok(abc(a, b, c))
-}
+use std::fmt;
 
 pub fn abc(a: f32, b: f32, c: f32) -> Result<Solution, &'static str> {
     let squarerooted = b * b - 4.0 * a * c;
@@ -36,12 +21,31 @@ pub fn pq(p: f32, q: f32) -> Result<Solution, &'static str> {
 }
 
 // Errors
-pub const NO_SOLUTION: &str = "b² - 4ac is negative and thus can't be squarerooted";
+pub const NO_SOLUTION: &str = "b²-4ac is negative and thus can't be squarerooted";
 pub const WRONG_INPUT: &str = "Input is not a number";
 
 // Solution
-#[derive(Debug)]
 pub struct Solution {
     pub x1: f32,
     pub x2: f32
+}
+
+impl fmt::Debug for Solution {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        if self.x2.is_nan() {
+            write!(f, "x1: {}", self.x1)
+        } else {
+            write!(f, "x1: {}, x2: {}", self.x1, self.x2)
+        }
+    }
+}
+
+impl fmt::Display for Solution {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        if self.x2.is_nan() {
+            write!(f, "x1: {}", self.x1)
+        } else {
+            write!(f, "x1: {}, x2: {}", self.x1, self.x2)
+        }
+    }
 }
