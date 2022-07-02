@@ -19,12 +19,16 @@ name = "yukimura"
 path = "src/lib.rs"
 
 [features]
-default = ["math", "physics", "quadratic"]
+default = ["all-math", "all-physics"]
 # Science Types
 math = []
 physics = []
 # Algorithms
 quadratic = ["math"]
+base = ["math"]
+# Groups
+all-math = ["math", "quadratic"]
+all-physics = ["physics"]
 # DEAD
 fracs = []
 
