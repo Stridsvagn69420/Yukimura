@@ -64,7 +64,7 @@ impl Frac for Fraction {
     /// 
     /// Returns the current [Fraction] in simplest form.
     fn simplify(&self) -> Fraction {
-        let gcd = base::greatest_common_divisor(self.numerator, self.denominator);
+        let gcd = base::gcd(self.numerator, self.denominator);
         Fraction {
             numerator: self.numerator / gcd,
             denominator: self.denominator / gcd
@@ -75,7 +75,7 @@ impl Frac for Fraction {
     /// Simplifies the Fraction by dividing the numerator and denominator by the GCD.
     /// No new Fraction is created, but the numerator and denominator of the current item are changed.
     fn simplify_self(&mut self) {
-        let gcd = base::greatest_common_divisor(self.numerator, self.denominator);
+        let gcd = base::gcd(self.numerator, self.denominator);
         self.numerator /= gcd;
         self.denominator /= gcd;
     }
