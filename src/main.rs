@@ -1,3 +1,5 @@
+use yukimura::printer::{Colors, write_line};
+
 fn main () {
-    println!("Hello, world!");
+    write_line("This is still WIP!", Colors::RedBright);
 }

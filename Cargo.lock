@@ -3,14 +3,5 @@
 version = 3
 
 [[package]]
-name = "kagero"
-version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "be7a9582da09f164eb70c7ac522ce52d94979b0b9e1392ace52055195f6d33c1"
-
-[[package]]
 name = "yukimura"
 version = "0.1.0"
-dependencies = [
- "kagero",
-]
